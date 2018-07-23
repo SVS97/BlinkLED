@@ -33,8 +33,8 @@ static void soft_delay(volatile uint16_t N)
  */
 static void my_delay_ms(volatile int ms)
 {
-	while (0 < ms)
-	{
+	while (0 < ms){
+
 		_delay_ms(1);
 		--ms;
 	}
