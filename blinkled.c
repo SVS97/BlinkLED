@@ -6,14 +6,14 @@
 #include <util/delay.h>
 
 #define PORTOUT PORTB 		
-#define ClearOutBit PORTOUT &= ~(0xE)	 //logical 0 on GPIO 
-#define SetOutBit	PORTOUT |= 0xE		 //logical 1 on the GPIO
+#define ClearOutBit PORTOUT &= ~(0xE)	//logical 0 on GPIO 
+#define SetOutBit	PORTOUT |= 0xE	//logical 1 on the GPIO
 
 
 static void soft_delay(volatile uint16_t N)
 {
 	/* If volatile is not used, AVR-GCC will optimize this stuff out     */
-    /* making our function completely empty                              */
+    	/* making our function completely empty                              */
 	volatile uint8_t inner = 0xFF;
 	while (N--) {
 		while (inner--);
@@ -41,11 +41,11 @@ void PWM (int delay)
 
 int main(void)
 {
-		/* Configure GPIO */
+	/* Configure GPIO */
 	DDRB |= 0XE;						/* set PB3, PB2, PB1 to output	 */
-	PORTB |= 0xE;						/* set output to 1				 */
-	volatile uint16_t  res;				/* random result				*/
-	int x0 = 2;							/* start value					*/
+	PORTB |= 0xE;						/* set output to 1		 */
+	volatile uint16_t  res;					/* random result	         */
+	int x0 = 2;						/* start value			 */
 	while(1) {
 		
 		// generate random number from 0 to 65536
@@ -84,7 +84,7 @@ int main(void)
 			} else {
 			PWM(0);  // logical 0
 		}
-		 
+	 
 	}
 	return 0;
 }
